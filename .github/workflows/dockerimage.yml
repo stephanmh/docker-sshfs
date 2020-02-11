@@ -13,9 +13,9 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login docker.pkg.github.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag alpine-sshfs:$(date +%s)
+      run: docker build -t alpine-sshfs:latest .
     - name: Tag the Docker image
-      run: docker tag alpine-sshfs:$(date +%s) alpine-sshfs:latest
+      run: docker tag alpine-sshfs:latest alpine-sshfs:$(date +%s) 
     - name: Push the Docker image to the registry
       run: docker push stephanmh/alpine-sshfs:latest
       
