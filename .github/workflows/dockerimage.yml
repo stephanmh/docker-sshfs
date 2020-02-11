@@ -17,5 +17,5 @@ jobs:
     - name: Tag the Docker image
       run: docker tag alpine-sshfs:latest alpine-sshfs:$(date +%s) 
     - name: Push the Docker image to the registry
-      run: docker push stephanmh/alpine-sshfs:latest
+      run: docker push alpine-sshfs:latest
       
